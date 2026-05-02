@@ -3,6 +3,9 @@
 # to /etc/nixos/configuration.nix instead.
 { config, lib, pkgs, modulesPath, ... }:
 
+let
+  secrets = import ./secrets.nix;
+in
 {
   imports =
     [ (modulesPath + "/installer/scan/not-detected.nix")
@@ -42,9 +45,8 @@
 
 
   networking.wireless = {
-    enable = true;  # Enables wireless support via wpa_supplicant.
-    environmentFile = "/etc/nixos/secrets/wireless.env";
-    networks."scanellehaus".pskRaw = "@PSK_SCANELLEHAUS@";
+    enable = true;
+    networks."scanellehaus".pskRaw = secrets.wifiPsk;
     interfaces = [ "wlp3s0" ];
   };
 
