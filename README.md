@@ -6,7 +6,7 @@ My personal NixOS setup.
 
 ```
 machines/       per-machine config and hardware
-  dbook/        Dell book (current machine)
+  dbook/        2015 MacBook Air (current machine)
   framework/    Framework 13 (future)
 modules/
   common.nix    shared packages, desktop, and user settings
