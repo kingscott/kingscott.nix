@@ -5,7 +5,6 @@ let
     ${pkgs.feh}/bin/feh --bg-fill ~/workspace/dotfiles-wm/dwm/backgrounds/20260410_barcelona-narbonne-0258-sk.JPEG &
     ${pkgs.redshift}/bin/redshift &
     ${pkgs.setxkbmap}/bin/setxkbmap -option ctrl:nocaps
-    ${pkgs.dunst}/bin/dunst &
     ${pkgs.dwmblocks}/bin/dwmblocks &
     exec ${pkgs.dwm}/bin/dwm
   '';
@@ -94,7 +93,6 @@ in
 
   environment.systemPackages = with pkgs; [
     claude-code
-    dunst
     dwm
     dwmblocks
     dwm-session
@@ -103,8 +101,6 @@ in
     gcc
     gnumake
     gh
-    ghostty
-    git
     libxcb
     libxcb-util
     libX11
@@ -117,7 +113,6 @@ in
     pavucontrol
     redshift
     ripgrep
-    rofi
     setxkbmap
     wget
     xclip
