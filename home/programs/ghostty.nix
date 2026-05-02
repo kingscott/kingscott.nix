@@ -6,6 +6,12 @@
       font-family = "CaskaydiaCove Nerd Font Mono";
       font-size = 13;
       theme = "rose-pine";
+      keybind = [
+        "ctrl+w>h=goto_split:left"
+        "ctrl+w>l=goto_split:right"
+        "ctrl+w>j=goto_split:bottom"
+        "ctrl+w>k=goto_split:top"
+      ];
     };
 
     themes = {
