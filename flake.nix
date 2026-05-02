@@ -11,14 +11,15 @@
   outputs = { self, nixpkgs, claude-desktop, zen-browser, ... }: {
     nixosConfigurations.dbook = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      
+
       modules = [
-        ./configuration.nix
+        ./machines/dbook
+        ./modules/common.nix
         ({ pkgs, ... }: {
-          nixpkgs.overlays = [ 
-            claude-desktop.overlays.default 
+          nixpkgs.overlays = [
+            claude-desktop.overlays.default
           ];
-          environment.systemPackages = [ 
+          environment.systemPackages = [
             pkgs.claude-desktop
             zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
           ];
