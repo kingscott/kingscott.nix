@@ -1,5 +1,6 @@
 { ... }: {
   imports = [
+    ./programs/bash.nix
     ./programs/git.nix
     ./programs/rofi.nix
     ./programs/ghostty.nix
