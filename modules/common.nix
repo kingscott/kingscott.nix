@@ -112,10 +112,12 @@ in
     nerd-fonts.caskaydia-cove
     openssh
     pavucontrol
+    pulseaudio
     redshift
     ripgrep
     setxkbmap
     tailscale
+    toybox
     wget
     xclip
     xinit
