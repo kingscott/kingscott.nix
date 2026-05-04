@@ -61,6 +61,7 @@ in
     alsa.support32Bit = true;
     pulse.enable = true;
   };
+  services.tailscale.enable = true;
 
   users.users.kingscott = {
     isNormalUser = true;
@@ -114,6 +115,7 @@ in
     redshift
     ripgrep
     setxkbmap
+    tailscale
     wget
     xclip
     xinit
