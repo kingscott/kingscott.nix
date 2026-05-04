@@ -7,10 +7,10 @@
       font-size = 13;
       theme = "rose-pine";
       keybind = [
-        "ctrl+w>h=goto_split:left"
-        "ctrl+w>l=goto_split:right"
-        "ctrl+w>j=goto_split:bottom"
-        "ctrl+w>k=goto_split:top"
+        "ctrl+s>h=goto_split:left"
+        "ctrl+s>l=goto_split:right"
+        "ctrl+s>j=goto_split:bottom"
+        "ctrl+s>k=goto_split:top"
       ];
     };
 
