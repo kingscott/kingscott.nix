@@ -9,7 +9,7 @@
     };
 
     shellAliases = {
-      cnx = "sudo nvim /etc/nixos/";
+      cnx = "nvim /etc/nixos/";
       mnx = "sudo nixos-rebuild switch --flake /etc/nixos#dbook --impure";
       cdwm = "nvim ~/workspace/dotfiles-wm/dwm/config.h";
     };
