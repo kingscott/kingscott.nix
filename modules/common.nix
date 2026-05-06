@@ -61,12 +61,17 @@ in
     alsa.support32Bit = true;
     pulse.enable = true;
   };
-  services.tailscale.enable = true;
+  services.tailscale = {
+    enable = true;
+    extraSetFlags = [ "--operator=kingscott" ];
+  };
+
+  services.udev.packages = [ pkgs.brightnessctl ];
 
   users.users.kingscott = {
     isNormalUser = true;
     description = "Scott King";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "video" ];
     packages = with pkgs; [
       kdePackages.kate
     ];
@@ -93,6 +98,7 @@ in
   ];
 
   environment.systemPackages = with pkgs; [
+    brightnessctl
     claude-code
     dwm
     dwmblocks
@@ -102,6 +108,7 @@ in
     gcc
     gnumake
     gh
+    libnotify
     libxcb
     libxcb-util
     libX11
