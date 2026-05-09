@@ -3,9 +3,6 @@
 # to /etc/nixos/configuration.nix instead.
 { config, lib, pkgs, modulesPath, ... }:
 
-let
-  secrets = import /etc/nixos/secrets.nix;
-in
 {
   imports =
     [ (modulesPath + "/installer/scan/not-detected.nix")
@@ -41,11 +38,7 @@ in
       options = [ "fmask=0077" "dmask=0077" ];
     };
 
-  networking.wireless = {
-    enable = true;
-    networks."scanellehaus".pskRaw = secrets.wifiPsk;
-    interfaces = [ "wlp3s0" ];
-  };
+  networking.networkmanager.enable = true;
 
   swapDevices = [ ];
 

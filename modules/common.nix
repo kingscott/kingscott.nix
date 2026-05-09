@@ -5,7 +5,6 @@ let
     ${pkgs.feh}/bin/feh --bg-fill ~/workspace/dotfiles-wm/dwm/backgrounds/20260410_barcelona-narbonne-0258-sk.JPEG &
     ${pkgs.redshift}/bin/redshift &
     ${pkgs.setxkbmap}/bin/setxkbmap -option ctrl:nocaps
-    ${pkgs.dunst}/bin/dunst &
     ${pkgs.dwmblocks}/bin/dwmblocks &
     exec ${pkgs.dwm}/bin/dwm
   '';
@@ -62,11 +61,17 @@ in
     alsa.support32Bit = true;
     pulse.enable = true;
   };
+  services.tailscale = {
+    enable = true;
+    extraSetFlags = [ "--operator=kingscott" ];
+  };
+
+  services.udev.packages = [ pkgs.brightnessctl ];
 
   users.users.kingscott = {
     isNormalUser = true;
     description = "Scott King";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "video" ];
     packages = with pkgs; [
       kdePackages.kate
     ];
@@ -93,8 +98,8 @@ in
   ];
 
   environment.systemPackages = with pkgs; [
+    brightnessctl
     claude-code
-    dunst
     dwm
     dwmblocks
     dwm-session
@@ -103,8 +108,7 @@ in
     gcc
     gnumake
     gh
-    ghostty
-    git
+    libnotify
     libxcb
     libxcb-util
     libX11
@@ -115,10 +119,12 @@ in
     nerd-fonts.caskaydia-cove
     openssh
     pavucontrol
+    pulseaudio
     redshift
     ripgrep
-    rofi
     setxkbmap
+    tailscale
+    toybox
     wget
     xclip
     xinit
