@@ -12,6 +12,7 @@
       cnx = "nvim /etc/nixos/";
       mnx = "sudo nixos-rebuild switch --flake /etc/nixos#dbook --impure";
       cdwm = "nvim ~/workspace/dotfiles-wm/dwm/config.h";
+      nfu = "sudo nix flake update";
     };
 
     initExtra = ''
