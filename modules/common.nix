@@ -99,6 +99,7 @@ in
 
   environment.systemPackages = with pkgs; [
     brightnessctl
+    calibre
     claude-code
     dwm
     dwmblocks
