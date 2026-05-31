@@ -5,6 +5,7 @@
     ./programs/rofi.nix
     ./programs/ghostty.nix
     ./programs/dunst.nix
+    ./xdg.nix
   ];
 
   home.username = "kingscott";
