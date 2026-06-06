@@ -9,10 +9,6 @@
       { command = [ "trayscale" "--hide-window" ]; }
     ];
 
-    environment = {
-      DISPLAY = ":0";
-    };
-
     input = {
       keyboard.xkb = {
         layout = "us";
@@ -53,7 +49,7 @@
         # Screenshot (dwm: Print -> spectacle)
         "Print" = { action.screenshot = { }; };
         "Mod+Print" = { action.screenshot-window = { }; };
-        "F11" = sh "grim -g \"$(slurp)\" - | wl-copy";
+        "F11" = sh "region=$(slurp) || exit; grim -g \"$region\" - | wl-copy";
 
         # Audio
         "XF86AudioMute" = sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
