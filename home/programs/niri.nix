@@ -2,7 +2,6 @@
   programs.niri.settings = {
     spawn-at-startup = [
       { command = [ "noctalia-shell" ]; }
-      { command = [ "mako" ]; }
       { command = [ "swaybg" "-i" "/home/kingscott/workspace/dotfiles-wm/dwm/backgrounds/20260410_barcelona-narbonne-0258-sk.JPEG" "-m" "fill" ]; }
       { command = [ "gammastep" ]; }
       { command = [ "xwayland-satellite" ]; }
