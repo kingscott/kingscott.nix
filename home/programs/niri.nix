@@ -24,7 +24,20 @@
 
     layout = {
       gaps = 15;
-      border.enable = false;
+      focus-ring.enable = false;
+      border = {
+        enable = true;
+        width = 3;
+        active.color = "#c4a7e7";
+        inactive.color = "#1f1d2e";
+      };
+      shadow = {
+        enable = true;
+        softness = 30;
+        spread = 5;
+        offset = { x = 0; y = 5; };
+        color = "#00000070";
+      };
       preset-column-widths = [
         { proportion = 1.0 / 3.0; }
         { proportion = 0.55; }
@@ -34,6 +47,18 @@
     };
 
     prefer-no-csd = true;
+
+    window-rules = [
+      {
+        geometry-corner-radius = {
+          top-left = 10.0;
+          top-right = 10.0;
+          bottom-left = 10.0;
+          bottom-right = 10.0;
+        };
+        clip-to-geometry = true;
+      }
+    ];
 
     binds = with lib.attrsets;
       let
