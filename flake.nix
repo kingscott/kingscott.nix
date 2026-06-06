@@ -25,7 +25,9 @@
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users.kingscott = import ./home;
+          home-manager.users.kingscott = {
+            imports = [ ./home ./machines/dbook/home.nix ];
+          };
         }
         ({ pkgs, ... }: {
           nixpkgs.overlays = [

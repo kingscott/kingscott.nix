@@ -59,8 +59,6 @@
         # Brightness
         "XF86MonBrightnessUp" = run [ "brightnessctl" "set" "+5%" ];
         "XF86MonBrightnessDown" = run [ "brightnessctl" "set" "5%-" ];
-        "XF86KbdBrightnessUp" = run [ "brightnessctl" "--device=smc::kbd_backlight" "set" "+10%" ];
-        "XF86KbdBrightnessDown" = run [ "brightnessctl" "--device=smc::kbd_backlight" "set" "10%-" ];
 
         # Media
         "XF86AudioPlay" = run [ "playerctl" "play-pause" ];
