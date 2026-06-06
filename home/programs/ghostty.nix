@@ -6,6 +6,8 @@
       font-family = "CaskaydiaCove Nerd Font Mono";
       font-size = 13;
       theme = "rose-pine";
+      background-opacity = 0.92;
+      background-blur-radius = 40;
       keybind = [
         "ctrl+s>h=goto_split:left"
         "ctrl+s>l=goto_split:right"
@@ -34,7 +36,7 @@
           "14=#ebbcba"
           "15=#e0def4"
         ];
-        background = "#191724";
+        background = "#100e1a";
         foreground = "#e0def4";
         cursor-color = "#e0def4";
         cursor-text = "#191724";
