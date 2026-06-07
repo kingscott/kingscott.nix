@@ -6,24 +6,28 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     claude-desktop.url = "github:aaddrick/claude-desktop-debian";
-    zen-browser = {
-      url = "github:youwen5/zen-browser-flake";
+    niri = {
+      url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, claude-desktop, zen-browser, ... }: {
+  outputs = { self, nixpkgs, home-manager, claude-desktop, niri, ... }: {
     nixosConfigurations.dbook = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
 
       modules = [
         ./machines/dbook
         ./modules/common.nix
+        ./modules/niri.nix
+        niri.nixosModules.niri
         home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users.kingscott = import ./home;
+          home-manager.users.kingscott = {
+            imports = [ ./home ./machines/dbook/home.nix ];
+          };
         }
         ({ pkgs, ... }: {
           nixpkgs.overlays = [
@@ -31,7 +35,6 @@
           ];
           environment.systemPackages = [
             pkgs.claude-desktop
-            zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
           ];
         })
       ];

@@ -2,6 +2,8 @@
 
 My personal NixOS setup.
 
+![Desktop screenshot](./screenshot.png)
+
 ## Layout
 
 ```
