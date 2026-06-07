@@ -28,3 +28,10 @@ Secrets live in `/etc/nixos/secrets.nix` (gitignored, not committed). WiFi is no
 ```bash
 sudo nixos-rebuild switch --flake .#dbook --impure
 ```
+
+To update packages, refresh the flake inputs first:
+
+```bash
+nix flake update
+sudo nixos-rebuild switch --flake .#dbook --impure
+```
