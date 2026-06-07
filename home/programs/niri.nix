@@ -65,12 +65,12 @@
         run = args: { action.spawn = args; };
       in
       mapAttrs (_: v: v) {
-        # Launchers / terminal (dwm: Mod+r dmenu, Mod+space rofi, Mod+Shift+Return ghostty)
+        # Launchers / terminal
         "Mod+R" = run [ "fuzzel" ];
         "Mod+Space" = run [ "fuzzel" ];
         "Mod+Shift+Return" = run [ "ghostty" ];
 
-        # Screenshot (dwm: Print -> spectacle)
+        # Screenshot
         "Print" = { action.screenshot = { }; };
         "Mod+Print" = { action.screenshot-window = { }; };
         "F11" = sh "region=$(slurp) || exit; grim -g \"$region\" - | wl-copy";
@@ -89,13 +89,13 @@
         "XF86AudioNext" = run [ "playerctl" "next" ];
         "XF86AudioPrev" = run [ "playerctl" "previous" ];
 
-        # Focus across columns (dwm: j/k focusstack -> niri columns left/right)
+        # Focus across columns
         "Mod+J" = { action.focus-column-right = { }; };
         "Mod+K" = { action.focus-column-left = { }; };
         # Within-column stack navigation
         "Mod+Ctrl+J" = { action.focus-window-down = { }; };
         "Mod+Ctrl+K" = { action.focus-window-up = { }; };
-        # Resize column (dwm: h/l setmfact)
+        # Resize column
         "Mod+H" = { action.set-column-width = "-5%"; };
         "Mod+L" = { action.set-column-width = "+5%"; };
 
@@ -105,29 +105,29 @@
         "Mod+Ctrl+Shift+J" = { action.move-window-down = { }; };
         "Mod+Ctrl+Shift+K" = { action.move-window-up = { }; };
 
-        # Master-area analog (dwm: Mod+Return = zoom) -> move column to first
+        # Move focused column to first position
         "Mod+Return" = { action.move-column-to-first = { }; };
 
-        # Previous workspace (dwm: Mod+Tab)
+        # Previous workspace
         "Mod+Tab" = { action.focus-workspace-previous = { }; };
 
-        # Kill window (dwm: Mod+Shift+q)
+        # Kill window
         "Mod+Shift+Q" = { action.close-window = { }; };
 
-        # Layouts: dwm f=floating, m=monocle
+        # Layouts
         "Mod+F" = { action.maximize-column = { }; };
         "Mod+Shift+F" = { action.fullscreen-window = { }; };
         "Mod+M" = { action.fullscreen-window = { }; };
         "Mod+Shift+Space" = { action.toggle-window-floating = { }; };
         "Mod+W" = { action.switch-preset-column-width = { }; };
 
-        # Monitors (dwm: Mod+,/. focusmon, Mod+Shift+,/. tagmon)
+        # Monitors
         "Mod+Comma" = { action.focus-monitor-left = { }; };
         "Mod+Period" = { action.focus-monitor-right = { }; };
         "Mod+Shift+Comma" = { action.move-column-to-monitor-left = { }; };
         "Mod+Shift+Period" = { action.move-column-to-monitor-right = { }; };
 
-        # Workspaces / tags 1..9 (dwm: Mod+N view, Mod+Shift+N tag)
+        # Workspaces 1..9
         "Mod+1" = { action.focus-workspace = 1; };
         "Mod+2" = { action.focus-workspace = 2; };
         "Mod+3" = { action.focus-workspace = 3; };
@@ -147,7 +147,7 @@
         "Mod+Shift+8" = { action.move-column-to-workspace = 8; };
         "Mod+Shift+9" = { action.move-column-to-workspace = 9; };
 
-        # Quit niri (dwm: Mod+Shift+c quit)
+        # Quit niri
         "Mod+Shift+C" = { action.quit = { }; };
       };
   };
