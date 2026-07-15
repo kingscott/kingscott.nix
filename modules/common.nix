@@ -95,5 +95,15 @@
     xinput
   ];
 
+  networking.firewall = {
+    allowedTCPPorts = [
+      9090  # Calibre content server
+      53317 # LocalSend
+    ];
+    allowedUDPPorts = [
+      53317 # LocalSend discovery
+    ];
+  };
+
   system.stateVersion = "25.11";
 }
