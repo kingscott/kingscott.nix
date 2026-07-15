@@ -18,6 +18,7 @@
         "ignoreMouseInput": false,
         "overviewLayer": false,
         "pinnedApps": [
+            "dev.deedles.Trayscale"
         ],
         "position": "center",
         "screenshotAnnotationTool": "",
@@ -143,8 +144,8 @@
                     "usePadding": false
                 },
                 {
-                    "colorizeIcons": false,
-                    "hideMode": "hidden",
+                    "colorizeIcons": true,
+                    "hideMode": "visible",
                     "id": "ActiveWindow",
                     "maxWidth": 145,
                     "scrollingMode": "hover",
@@ -180,6 +181,7 @@
                     "hidePassive": false,
                     "id": "Tray",
                     "pinned": [
+                        "dev.deedles.Trayscale"
                     ]
                 },
                 {
@@ -192,12 +194,12 @@
                 },
                 {
                     "deviceNativePath": "__default__",
-                    "displayMode": "graphic-clean",
+                    "displayMode": "graphic",
                     "hideIfIdle": false,
                     "hideIfNotDetected": true,
                     "id": "Battery",
-                    "showNoctaliaPerformance": false,
-                    "showPowerProfiles": false
+                    "showNoctaliaPerformance": true,
+                    "showPowerProfiles": true
                 },
                 {
                     "displayMode": "onhover",
