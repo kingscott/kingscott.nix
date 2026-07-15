@@ -64,10 +64,12 @@
     brightnessctl
     calibre
     claude-code
+    dfu-util
     fastfetch
     gcc
     gnumake
     gh
+    kdePackages.okular
     libnotify
     libxcb
     libxcb-util
@@ -80,10 +82,13 @@
     openssh
     pavucontrol
     pulseaudio
+    qmk
     ripgrep
     setxkbmap
     tailscale
     toybox
+    typora
+    vlc
     wget
     xclip
     xinit
