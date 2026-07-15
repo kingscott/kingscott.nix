@@ -1,25 +1,5 @@
 { config, pkgs, ... }:
 
-let
-  dwm-session = pkgs.writeShellScriptBin "dwm-session" ''
-    ${pkgs.feh}/bin/feh --bg-fill ~/workspace/dotfiles-wm/dwm/backgrounds/20260410_barcelona-narbonne-0258-sk.JPEG &
-    ${pkgs.redshift}/bin/redshift &
-    ${pkgs.setxkbmap}/bin/setxkbmap -option ctrl:nocaps
-    ${pkgs.dwmblocks}/bin/dwmblocks &
-    exec ${pkgs.dwm}/bin/dwm
-  '';
-  dwm-xsession = pkgs.runCommand "dwm-xsession" {
-    passthru.providedSessions = [ "dwm" ];
-  } ''
-    mkdir -p $out/share/xsessions
-    cat > $out/share/xsessions/dwm.desktop <<EOF
-    [Desktop Entry]
-    Name=dwm
-    Exec=${dwm-session}/bin/dwm-session
-    Type=XSession
-    EOF
-  '';
-in
 {
   boot.loader = {
     efi.canTouchEfiVariables = true;
@@ -44,7 +24,6 @@ in
   services.xserver.enable = true;
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
-  services.displayManager.sessionPackages = [ dwm-xsession ];
 
   services.xserver.xkb = {
     layout = "us";
@@ -81,31 +60,11 @@ in
 
   nixpkgs.config.allowUnfree = true;
 
-  nixpkgs.overlays = [
-    (final: prev: {
-      dwm = prev.dwm.overrideAttrs (_: {
-        src = /home/kingscott/workspace/dotfiles-wm/dwm;
-      });
-      dwmblocks = prev.stdenv.mkDerivation {
-        pname = "dwmblocks";
-        version = "custom";
-        src = /home/kingscott/workspace/dotfiles-wm/dwmblocks;
-        nativeBuildInputs = [ prev.pkg-config ];
-        buildInputs = [ prev.xcbutil ];
-        makeFlags = [ "PREFIX=$(out)" ];
-      };
-    })
-  ];
-
   environment.systemPackages = with pkgs; [
     brightnessctl
     calibre
     claude-code
-    dwm
-    dwmblocks
-    dwm-session
     fastfetch
-    feh
     gcc
     gnumake
     gh
@@ -121,7 +80,6 @@ in
     openssh
     pavucontrol
     pulseaudio
-    redshift
     ripgrep
     setxkbmap
     tailscale
