@@ -12,9 +12,10 @@
   nix.gc = {
     automatic = true;
     dates = "weekly";
-    options = "--delete-old-generations 5";
+    options = "--delete-older-than 14d";
   };
 
+  nix.settings.auto-optimise-store = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   time.timeZone = "America/Toronto";
