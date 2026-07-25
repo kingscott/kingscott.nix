@@ -8,8 +8,8 @@ My personal NixOS setup.
 
 ```
 machines/       per-machine config and hardware
-  dbook/        2015 MacBook Air (current machine)
-  framework/    Framework 13 (future)
+  dbook/        2015 MacBook Air
+  framework/    Framework 13 (AMD Ryzen 7 7840U)
 modules/
   common.nix    shared packages, desktop, and user settings
 flake.nix       defines nixosConfigurations for each machine
@@ -35,3 +35,18 @@ To update packages, refresh the flake inputs first:
 nix flake update
 sudo nixos-rebuild switch --flake .#dbook --impure
 ```
+
+## Installing on the Framework 13
+
+The `framework` host shares dbook's packages, desktop, and window manager; the
+differences are the `nixos-hardware` Framework 13 (AMD 7040) module and its own
+generated hardware config. `machines/framework/hardware-configuration.nix` in
+the repo is a placeholder — regenerate it on the machine during install:
+
+```bash
+# from the NixOS installer, after partitioning and mounting at /mnt
+sudo nixos-generate-config --root /mnt --dir /mnt/etc/nixos/machines/framework
+sudo nixos-install --flake /mnt/etc/nixos#framework
+```
+
+Afterwards, rebuild with `--flake .#framework`.
