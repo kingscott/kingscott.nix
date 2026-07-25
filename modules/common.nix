@@ -22,6 +22,8 @@
 
   i18n.defaultLocale = "en_CA.UTF-8";
 
+  networking.networkmanager.enable = true;
+
   services.xserver.enable = true;
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
