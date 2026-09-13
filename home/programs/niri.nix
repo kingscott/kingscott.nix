@@ -15,8 +15,25 @@
       };
       touchpad = {
         tap = true;
+        # Tap-and-drag with a short grace period, so briefly lifting a finger
+        # mid-drag doesn't drop it.
+        drag = true;
+        drag-lock = true;
         natural-scroll = true;
+        # Disable while typing, and while the trackpoint is in use. The FW13
+        # has no trackpoint, but dwtp is harmless and keeps this portable.
         dwt = true;
+        dwtp = true;
+        # Smooth two-finger scrolling with the adaptive accel curve.
+        scroll-method = "two-finger";
+        accel-profile = "adaptive";
+        # The Framework 13 pad is one large physical button, so drive clicks by
+        # finger count instead of click zones: 2 fingers = right-click,
+        # 3 fingers = middle-click. Multi-finger taps follow the same mapping.
+        click-method = "clickfinger";
+        tap-button-map = "left-right-middle";
+        # Keep the pad live when a mouse is plugged in.
+        disabled-on-external-mouse = false;
       };
       focus-follows-mouse.enable = false;
     };
@@ -46,6 +63,18 @@
     };
 
     prefer-no-csd = true;
+
+    animations = {
+      workspace-switch.enable = false;
+      window-open.enable = false;
+      window-close.enable = false;
+      horizontal-view-movement.enable = false;
+      window-movement.enable = false;
+      window-resize.enable = false;
+      config-notification-open-close.enable = false;
+      overview-open-close.enable = false;
+      screenshot-ui-open.enable = false;
+    };
 
     window-rules = [
       {
@@ -113,6 +142,16 @@
 
         # Kill window
         "Mod+Shift+Q" = { action.close-window = { }; };
+
+        # Overview — same view the four-finger swipe up opens.
+        "Mod+O" = { action.toggle-overview = { }; };
+
+        # Mod + two-finger scroll on the trackpad. cooldown-ms keeps one flick
+        # from flying through several workspaces at once.
+        "Mod+WheelScrollDown" = { action.focus-workspace-down = { }; cooldown-ms = 150; };
+        "Mod+WheelScrollUp" = { action.focus-workspace-up = { }; cooldown-ms = 150; };
+        "Mod+Shift+WheelScrollDown" = { action.focus-column-right = { }; cooldown-ms = 150; };
+        "Mod+Shift+WheelScrollUp" = { action.focus-column-left = { }; cooldown-ms = 150; };
 
         # Layouts
         "Mod+F" = { action.maximize-column = { }; };
