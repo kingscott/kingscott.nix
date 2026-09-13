@@ -26,6 +26,7 @@
       # home-manager wiring. Per-machine hardware lives under ./machines/<name>.
       sharedModules = [
         ./modules/common.nix
+        ./modules/avahi.nix
         ./modules/niri.nix
         niri.nixosModules.niri
         home-manager.nixosModules.home-manager

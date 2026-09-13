@@ -50,19 +50,7 @@
   # "move to trash" and remote/removable locations silently don't work.
   services.gvfs.enable = true;
 
-  # mDNS/DNS-SD so CUPS can discover driverless (IPP Everywhere/AirPrint) printers
-  services.avahi = {
-    enable = true;
-    nssmdns4 = true;
-    openFirewall = true;
-    # Announce the host's own address record so <hostname>.local resolves
-    # across machines (publishing is off by default, which leaves the name
-    # unresolvable even though the daemon runs).
-    publish = {
-      addresses = true;
-      workstation = true;
-    };
-  };
+  # mDNS lives in ./avahi.nix.
 
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
