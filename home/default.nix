@@ -9,6 +9,8 @@
     ./programs/fuzzel.nix
     ./programs/niri.nix
     ./programs/noctalia.nix
+    ./programs/zen.nix
+    ./theme.nix
     ./xdg.nix
   ];
 
