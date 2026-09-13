@@ -55,6 +55,13 @@
     enable = true;
     nssmdns4 = true;
     openFirewall = true;
+    # Announce the host's own address record so <hostname>.local resolves
+    # across machines (publishing is off by default, which leaves the name
+    # unresolvable even though the daemon runs).
+    publish = {
+      addresses = true;
+      workstation = true;
+    };
   };
 
   services.pulseaudio.enable = false;
