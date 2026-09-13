@@ -15,6 +15,17 @@ in
 
   networking.hostName = "dbook";
 
+  # SSH access from the framework machine; its key is authorized for
+  # key/config transfers between machines on the LAN.
+  services.openssh = {
+    enable = true;
+    openFirewall = true;
+  };
+
+  users.users.kingscott.openssh.authorizedKeys.keys = [
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPCvo9n8iKckTVwA+nARt2C9QDP+UHRY2f/UqFt+NOhy me@kingscott.ca"
+  ];
+
   nixpkgs.config.permittedInsecurePackages = [
     "broadcom-sta-6.30.223.271-59-6.12.82"
   ];
