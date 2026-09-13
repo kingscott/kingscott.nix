@@ -1,4 +1,4 @@
-{ ... }: {
+{ osConfig, ... }: {
   programs.bash = {
     enable = true;
 
@@ -10,7 +10,9 @@
 
     shellAliases = {
       cnx = "nvim /etc/nixos/";
-      mnx = "sudo nixos-rebuild switch --flake /etc/nixos#dbook --impure";
+      # Build whichever host this machine actually is, derived from its
+      # NixOS hostname, so `mnx` never rebuilds the wrong host's config.
+      mnx = "sudo nixos-rebuild switch --flake /etc/nixos#${osConfig.networking.hostName} --impure";
       nfu = "sudo nix flake update";
     };
 
