@@ -95,6 +95,7 @@
 
     amp-cli
     brightnessctl
+    btop
     calibre
     claude-code
     dfu-util
