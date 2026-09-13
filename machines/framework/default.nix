@@ -30,6 +30,12 @@ in
     };
   };
 
+  # SSH access for key/config transfers between machines on the LAN.
+  services.openssh = {
+    enable = true;
+    openFirewall = true;
+  };
+
   services.udev.extraRules = ''
     ACTION=="change", SUBSYSTEM=="power_supply", ATTR{type}=="Mains", RUN+="${pkgs.systemd}/bin/systemctl start --no-block power-profile-switch.service"
   '';
